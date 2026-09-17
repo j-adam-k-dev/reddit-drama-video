@@ -1,0 +1,17 @@
+node_modules
+dist
+service/daemon
+server/daemon
+.env
+data/roundup.json
+output/*.mp4
+public/audio/*
+!public/audio/.gitkeep
+public/samples/*
+public/video-bank/*
+!output/.gitkeep
+!public/audio/.gitkeep
+!public/samples/.gitkeep
+!public/video-bank/.gitkeep
+.DS_Store
+*.log

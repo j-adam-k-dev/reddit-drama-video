@@ -1,0 +1,35 @@
+{
+  "_note": "Sample data so 'From file' works before you wire up Reddit. Replace data/roundup.json with real skill output, or just use the Live source.",
+  "posts": [
+    {
+      "id": "sample1",
+      "subreddit": "AITAH",
+      "title": "AITA for refusing to give up my window seat on a 9 hour flight?",
+      "selftext": "I booked my flight months in advance and specifically paid extra for a window seat because I get motion sick and looking outside helps. When I boarded, a mother with a toddler asked me to switch to a middle seat several rows back so she could sit next to her kid. I said no, and offered to help her find someone else to switch. She called me heartless in front of the whole cabin. My seatmate said I should have just moved. AITA?",
+      "author": "throwaway_seat22",
+      "score": 18400,
+      "numComments": 3200,
+      "permalink": "https://www.reddit.com/r/AITAH/comments/sample1"
+    },
+    {
+      "id": "sample2",
+      "subreddit": "weddingshaming",
+      "title": "Bride made guests pay a cover charge to enter the reception",
+      "selftext": "My cousin got married last weekend and at the door there was a table where a bridesmaid was collecting twenty dollars per person as a mandatory entry fee, on top of the gifts everyone already brought. When my uncle asked what it was for, she said it was to cover the open bar that turned out to be cash only anyway. Half the family left before dinner.",
+      "author": "family_gossip_hub",
+      "score": 15200,
+      "numComments": 2100,
+      "permalink": "https://www.reddit.com/r/weddingshaming/comments/sample2"
+    },
+    {
+      "id": "sample3",
+      "subreddit": "EntitledPeople",
+      "title": "Neighbor demanded I mow his lawn because mine looked too nice",
+      "selftext": "I spend every Sunday morning taking care of my yard because I find it relaxing. My neighbor knocked on my door and told me that since my lawn made his look bad, it was only fair that I mow his too, for free. When I laughed and said no, he threatened to report me to the HOA for making the neighborhood competitive. We do not even have an HOA.",
+      "author": "quiet_gardener",
+      "score": 9800,
+      "numComments": 1450,
+      "permalink": "https://www.reddit.com/r/EntitledPeople/comments/sample3"
+    }
+  ]
+}
