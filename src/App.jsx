@@ -10,9 +10,10 @@ const VOICES = [
   { id: "en-GB-RyanNeural", label: "Ryan — UK male" },
 ];
 
-const DEFAULT_SUBS =
-  "AITAH,AmITheDevil,weddingshaming,JUSTNOMIL,EntitledPeople";
-
+// NOTE: The Reddit "Live (OAuth)" source is intentionally hidden from the UI —
+// Reddit denied API access, so the app runs off data/roundup.json ("From file").
+// The OAuth code is still in server/reddit.js and the /api routes; to bring the
+// Live source back, restore the source <select> below and pass source:"live".
 const STATUS_LABELS = {
   starting: "Starting…",
   tts: "Generating narration…",
@@ -23,8 +24,6 @@ const STATUS_LABELS = {
 };
 
 export default function App() {
-  const [subs, setSubs] = useState(DEFAULT_SUBS);
-  const [source, setSource] = useState("file");
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -73,7 +72,7 @@ export default function App() {
     setSelected(null);
     setJob(null);
     try {
-      const data = await fetchPosts({ subs, limit: 25, source });
+      const data = await fetchPosts({ limit: 25, source: "file" });
       setPosts(data.posts);
       if (data.usedSample) {
         setNotice(
@@ -123,22 +122,6 @@ export default function App() {
       <header className="topbar">
         <h1>🎬 Reddit Drama Video Studio</h1>
         <div className="subs-row">
-          <select
-            className="source-select"
-            value={source}
-            onChange={(e) => setSource(e.target.value)}
-            title="Where to get posts from"
-          >
-            <option value="live">Live (Reddit OAuth)</option>
-            <option value="file">From file (skill roundup)</option>
-          </select>
-          <input
-            className="subs-input"
-            value={subs}
-            onChange={(e) => setSubs(e.target.value)}
-            placeholder="comma-separated subreddits"
-            disabled={source === "file"}
-          />
           <button onClick={load} disabled={loading}>
             {loading ? "Loading…" : "Refresh roundup"}
           </button>
