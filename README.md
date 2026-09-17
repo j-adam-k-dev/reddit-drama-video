@@ -14,6 +14,41 @@ Nothing is exposed to the internet — the backend binds to `localhost` only.
 
 ---
 
+## Reddit API usage
+
+This app is a **personal, non-commercial tool that runs locally** on one machine.
+Its entire interaction with Reddit is **read-only** and lives in
+[`server/reddit.js`](server/reddit.js).
+
+**Authentication** — application-only OAuth using a personal "script" app:
+
+- `POST https://www.reddit.com/api/v1/access_token` (`grant_type=client_credentials`)
+
+**Reads** (the only calls made against Reddit):
+
+- `GET https://oauth.reddit.com/r/{subreddit}/hot?limit=25` — the hot listing for
+  each tracked subreddit, to build the roundup list.
+- `GET https://oauth.reddit.com/comments/{id}?limit=1` — the full title/body of a
+  single post, only when the user selects it. (See `fetchRoundup` and
+  `fetchPostText`.)
+
+**What it never does** — no writes of any kind: it does not post, comment, vote,
+send messages, subscribe, or moderate, and it touches no other user.
+
+**Volume** — a handful of GET requests per session (one refresh ≈ a few listing
+calls, plus one call per post opened), used a few times a week. Far under the
+rate limits.
+
+**Data handling** — the only thing persisted is `data/roundup.json`, a small file
+holding the posts from the last refresh, overwritten on the next refresh. No
+database of Reddit content is kept. Nothing pulled from Reddit is re-uploaded,
+sold, shared publicly, or used to train any model. The selected post's text is
+sent to a text-to-speech service (Microsoft Edge neural voices) purely to
+generate the narration audio for the local video. Finished videos are for
+personal, at-home viewing only.
+
+---
+
 ## How the pieces fit
 
 ```
